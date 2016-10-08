@@ -11,10 +11,10 @@ import org.json.JSONObject
 import java.util.*
 
 class BillingController(
-        val context: Context
+        private val context: Context
 ) {
 
-    var mService: IInAppBillingService? = null
+    private var mService: IInAppBillingService? = null
 
     var mServiceConn: ServiceConnection = object : ServiceConnection {
         override fun onServiceDisconnected(name: ComponentName) {
@@ -41,7 +41,7 @@ class BillingController(
     fun foo() {
         if (mService != null) {
             val skuList = ArrayList<String>()
-            skuList.add("premiumUpgrade")
+            skuList.add("waste_cheapest")
             skuList.add("gas")
             val querySkus = Bundle()
             querySkus.putStringArrayList("ITEM_ID_LIST", skuList);
